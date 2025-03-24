@@ -104,12 +104,13 @@ if st.button("Comparar"):
             df, df_pivot, df_merged = extract_nfe_data(temp_folder, caminho_espelho)
         
             if df is not None:
+
             #base_output = BytesIO()
                 pivot_output = BytesIO()
             #df.to_excel(base_output, index=False, engine='openpyxl')
                 df_merged.to_excel(pivot_output, engine='openpyxl')
             #base_output.seek(0)
-            pivot_output.seek(0)
+                pivot_output.seek(0)
             
             #st.download_button("Baixar Base de Dados", data=base_output, file_name="base.xlsx", mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
                 st.download_button("Baixar Tabela Pivot", data=pivot_output, file_name="pivot.xlsx", mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
@@ -119,8 +120,8 @@ if st.button("Comparar"):
             #st.dataframe(df_pivot.head())
             # Apagar arquivos da pasta temp_xmls após a execução
             
-             else:
-            st.error("Nenhum dado foi extraído. Verifique os arquivos carregados.")
+            else:
+                st.error("Nenhum dado foi extraído. Verifique os arquivos carregados.")
     else:
         st.error("Por favor, selecione pelo menos um arquivo XML.")
 
